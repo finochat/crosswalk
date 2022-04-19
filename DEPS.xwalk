@@ -45,7 +45,7 @@ buildtools_rev = '505de88083136eefd056e5ee4ca0f01fe9b33de8'
 #b3771b1935ea74c388b6fb1750e83f5d83b39dec'
 
 chromium_git = 'https://chromium.googlesource.com'
-ks_git = 'https://github.com/ks32'
+ks_git = 'https://github.com/finochat'
 
 # ------------------------------------------------------
 # gclient solutions.
