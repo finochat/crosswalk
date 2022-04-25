@@ -10,7 +10,7 @@ import("//mojo/public/tools/bindings/mojom.gni")
 import("//xwalk/build/version.gni")
 import("//xwalk/build/xwalk.gni")
 import("//xwalk/build/tenta.gni")
-#import("//ppapi/features/features.gni") 
+import("//ppapi/buildflags/buildflags.gni") 
 import("//components/nacl/features.gni")
 
 group("xwalk_builder") {
@@ -541,35 +541,35 @@ source_set("xwalk_runtime") {
     ]
   }
 
-  # if (enable_plugins) {
-  #   sources += [
-  #     "//chrome/renderer/pepper/pepper_flash_drm_renderer_host.cc",
-  #     "//chrome/renderer/pepper/pepper_flash_drm_renderer_host.h",
-  #     "//chrome/renderer/pepper/pepper_flash_font_file_host.cc",
-  #     "//chrome/renderer/pepper/pepper_flash_font_file_host.h",
-  #     "//chrome/renderer/pepper/pepper_flash_fullscreen_host.cc",
-  #     "//chrome/renderer/pepper/pepper_flash_fullscreen_host.h",
-  #     "//chrome/renderer/pepper/pepper_flash_menu_host.cc",
-  #     "//chrome/renderer/pepper/pepper_flash_menu_host.h",
-  #     "//chrome/renderer/pepper/pepper_flash_renderer_host.cc",
-  #     "//chrome/renderer/pepper/pepper_flash_renderer_host.h",
-  #     "runtime/browser/renderer_host/pepper/xwalk_browser_pepper_host_factory.cc",
-  #     "runtime/browser/renderer_host/pepper/xwalk_browser_pepper_host_factory.h",
-  #     "runtime/renderer/pepper/pepper_helper.cc",
-  #     "runtime/renderer/pepper/pepper_helper.h",
-  #     "runtime/renderer/pepper/pepper_uma_host.cc",
-  #     "runtime/renderer/pepper/pepper_uma_host.h",
-  #     "runtime/renderer/pepper/xwalk_renderer_pepper_host_factory.cc",
-  #     "runtime/renderer/pepper/xwalk_renderer_pepper_host_factory.h",
-  #   ]
-  #   deps += [
-  #     "//components/pdf/renderer",
-  #     "//ppapi/host",
-  #     "//ppapi/proxy",
-  #     "//ppapi/proxy:ipc",
-  #     "//ppapi/shared_impl",
-  #   ]
-  # }
+   if (enable_plugins) {
+     sources += [
+       "//chrome/renderer/pepper/pepper_flash_drm_renderer_host.cc",
+       "//chrome/renderer/pepper/pepper_flash_drm_renderer_host.h",
+       "//chrome/renderer/pepper/pepper_flash_font_file_host.cc",
+       "//chrome/renderer/pepper/pepper_flash_font_file_host.h",
+       "//chrome/renderer/pepper/pepper_flash_fullscreen_host.cc",
+       "//chrome/renderer/pepper/pepper_flash_fullscreen_host.h",
+       "//chrome/renderer/pepper/pepper_flash_menu_host.cc",
+       "//chrome/renderer/pepper/pepper_flash_menu_host.h",
+       "//chrome/renderer/pepper/pepper_flash_renderer_host.cc",
+       "//chrome/renderer/pepper/pepper_flash_renderer_host.h",
+       "runtime/browser/renderer_host/pepper/xwalk_browser_pepper_host_factory.cc",
+       "runtime/browser/renderer_host/pepper/xwalk_browser_pepper_host_factory.h",
+       "runtime/renderer/pepper/pepper_helper.cc",
+       "runtime/renderer/pepper/pepper_helper.h",
+       "runtime/renderer/pepper/pepper_uma_host.cc",
+       "runtime/renderer/pepper/pepper_uma_host.h",
+       "runtime/renderer/pepper/xwalk_renderer_pepper_host_factory.cc",
+       "runtime/renderer/pepper/xwalk_renderer_pepper_host_factory.h",
+     ]
+     deps += [
+       "//components/pdf/renderer",
+       "//ppapi/host",
+       "//ppapi/proxy",
+       "//ppapi/proxy:ipc",
+       "//ppapi/shared_impl",
+     ]
+   }
 
   if (toolkit_views) {
     sources += [
